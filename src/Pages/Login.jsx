@@ -49,24 +49,80 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto py-10 grid lg:grid-cols-2 gap-10">
-      <div>
-        <h1 className="text-3xl font-bold">Welcome Back</h1>
-        <p className="opacity-80">Login to manage your plants 🌱</p>
+    <div
+      className="bg-amber-50 text-gray-800 min-h-screen flex flex-col lg:flex-row items-center justify-center 
+                 gap-10 px-5 py-10 text-center bg-gradient-to-br from-green-50 to-white"
+    >
+      {/* Left side (welcome text) */}
+      <div className="lg:w-1/2 flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-bold text-green-600 mb-2">Welcome Back </h1>
+        <p className="text-gray-600 text-base max-w-md">
+          Login to manage your plants, track your care routine, and discover new green friends!
+        </p>
       </div>
-      <form onSubmit={handleLogin} className="space-y-3 max-w-md">
-        <input ref={emailRef} name="email" type="email" className="input input-bordered w-full" placeholder="Email" required />
-        <div className="relative">
-          <input name="password" type={show ? "text" : "password"} className="input input-bordered w-full" placeholder="Password" required />
-          <button type="button" className="absolute right-3 top-3" onClick={()=>setShow(s=>!s)}>
-            {show ? <FaEye/> : <IoEyeOff/>}
+
+      {/* Right side (login form) */}
+      <div className="lg:w-1/2 flex flex-col items-center justify-center w-full">
+        <form
+          onSubmit={handleLogin}
+          className="space-y-4 bg-white shadow-lg rounded-xl p-8 w-full max-w-md text-left"
+        >
+          <h2 className="text-2xl font-semibold text-center text-gray-800 mb-2">Login</h2>
+
+          <input
+            ref={emailRef}
+            name="email"
+            type="email"
+            className="input input-bordered w-full"
+            placeholder="Email"
+            required
+          />
+
+          <div className="relative">
+            <input
+              name="password"
+              type={show ? "text" : "password"}
+              className="input input-bordered w-full pr-10"
+              placeholder="Password"
+              required
+            />
+            <button
+              type="button"
+              className="absolute right-3 top-3 text-gray-500"
+              onClick={() => setShow((s) => !s)}
+            >
+              {show ? <FaEye /> : <IoEyeOff />}
+            </button>
+          </div>
+
+          <button
+            type="button"
+            className="link text-sm text-blue-900 hover:underline"
+            onClick={handleForgot}
+          >
+            Forgot Password?
           </button>
-        </div>
-        <button type="button" className="link" onClick={handleForgot}>Forgot Password?</button>
-        <button className="my-btn">Login</button>
-        <button type="button" onClick={handleGoogle} className="btn w-full">Continue with Google</button>
-        <p className="text-sm">New here? <Link to="/signup" className="link link-primary">Create an account</Link></p>
-      </form>
+
+          <button className="my-btn w-full bg-green-600 text-white hover:bg-green-700 transition">
+            Login
+          </button>
+
+          <button
+            type="button"
+            onClick={handleGoogle}
+            className="btn w-full border border-gray-300 hover:border-b-indigo-900 text-emerald-600"
+          >
+            Continue with Google
+          </button>
+
+          <p className="text-sm text-center text-black">
+            New here?{" "}
+            <Link to="/signup" className="link text-blue-800 hover:underline">
+              Create an account
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

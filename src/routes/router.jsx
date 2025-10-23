@@ -1,11 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
+
+// Layout
 import MainLayout from "../layout/MainLayout";
+
+// Pages
 import Home from "../Pages/Home";
+import Plants from "../Pages/Plants";
+import PlantDetails from "../Pages/PlantDetails";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import Profile from "../Pages/Profile";
-import PlantDetails from "../Pages/PlantDetails";
-import Plants from "../Pages/Plants";
+
+// Components
 import ProtectedRoute from "../components/ProtectedRoute";
 
 export const router = createBrowserRouter([
@@ -13,8 +19,13 @@ export const router = createBrowserRouter([
     path: "/",
     element: <MainLayout />,
     children: [
+      // Public routes
       { index: true, element: <Home /> },
       { path: "plants", element: <Plants /> },
+      { path: "login", element: <Login /> },
+      { path: "signup", element: <Signup /> },
+
+      // Protected routes
       {
         path: "plants/:id",
         element: (
@@ -23,8 +34,6 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      { path: "login", element: <Login /> },
-      { path: "signup", element: <Signup /> },
       {
         path: "profile",
         element: (

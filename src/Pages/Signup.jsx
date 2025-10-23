@@ -46,10 +46,10 @@ const Signup = () => {
   };
 
   return (
-    <div className="container mx-auto py-10 grid lg:grid-cols-2 gap-10">
+    <div className="text-gray-700 container mx-auto py-10 grid lg:grid-cols-2 gap-10">
       <div>
-        <h1 className="text-3xl font-bold">Create Account</h1>
-        <p className="opacity-80">Join GreenNest and grow greener 🌿</p>
+        <h1 className="text-3xl font-bold text-amber-700">Create Account</h1>
+        <p className="opacity-80 text-gray-600">Join GreenNest and grow greener,Encourage Others.</p>
       </div>
       <form onSubmit={handleSignup} className="space-y-3 max-w-md">
         <input name="name" className="input input-bordered w-full" placeholder="Name" required />
