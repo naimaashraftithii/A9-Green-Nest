@@ -2,34 +2,63 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PlantCard from "../components/PlantCard";
 
+
+// Eco Decor Ideas
 const EcoDecorIdeas = () => (
-  <section className="p-6 rounded-2xl bg-green-50">
-    <h2 className="text-2xl font-bold text-amber-900 mb-4"> Eco Decor Ideas</h2>
-    <div className="grid md:grid-cols-3 gap-6">
+  <section className="p-6 rounded-2xl text-center bg-emerald-200">
+    <h2 className="text-4xl font-bold text-gray-600 mb-4">Eco Decor Ideas</h2>
+    <p className=" text-sm md:text-base text-gray-500 font-serif max-w-2xl md:max-w-3xl mx-auto leading-relaxed mb-7">It’s true when we say plants make people happy. 
+      We hope you’ll make any one of these plants an addition to your home</p>
+    <div className="grid md:grid-cols-3 gap-6 text-gray-600">
       {[
         {
           title: "Shelf Styling",
           text: "Mix trailing pothos with books and candles for a cozy vignette.",
-          img: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop",
+          imgs: [
+            "https://i.ibb.co/8DwFsSGt/227bd3725bd69da935d683b189328336.jpg",
+            "https://i.ibb.co/xrLZ7Zy/e58d18c53593979e45fe7ff56848a261.jpg",
+          ],
         },
         {
           title: "Entryway Statement",
           text: "Use a rubber plant in a textured pot to greet guests with green.",
-          img: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop",
+          imgs: [
+            "https://i.ibb.co/xq9f6p9C/cb33642c0217fe8e3616083c39ac6e71.jpg",
+            "https://i.ibb.co/Ng7hQyTc/dcfb360292c41d5b3d40a880ca3e8c87.jpg",
+          ],
         },
         {
           title: "Bedroom Calm",
           text: "Snake plant + neutral linens = fresh air and better sleep vibes.",
-          img: "https://images.unsplash.com/photo-1493666438817-866a91353ca9?q=80&w=1200&auto=format&fit=crop",
+          imgs: [
+            "https://i.ibb.co/9CnjgHs/d4af642d529ecbf680f745edd76dda5a-1.jpg",
+            "https://i.ibb.co/XZrDc4kp/23a26ecc3ab3a9d5b51fdaf896df2485.jpg",
+          ],
         },
       ].map((i, idx) => (
         <div
           key={idx}
-          className="rounded-xl overflow-hidden bg-white shadow hover:shadow-lg transition-all duration-300"
+          className="rounded-xl overflow-hidden bg-blue-50 shadow hover:shadow-lg transition-all duration-300"
         >
-          <img src={i.img} alt={i.title} className="h-40 w-full object-cover" />
+          {/* Two images horizontally with white borders and gap */}
+          <div className="flex gap-2 p-2 bg-white">
+            {i.imgs.map((src, imgIdx) => (
+              <div
+                key={imgIdx}
+                className="flex-1 overflow-hidden rounded-lg border-2 border-white"
+              >
+                <img
+                  src={src}
+                  alt={i.title}
+                  className="h-56 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Text */}
           <div className="p-4">
-            <h3 className="font-semibold">{i.title}</h3>
+            <h3 className="font-semibold text-gray-800">{i.title}</h3>
             <p className="text-sm opacity-80">{i.text}</p>
           </div>
         </div>
@@ -37,6 +66,10 @@ const EcoDecorIdeas = () => (
     </div>
   </section>
 );
+
+
+
+
 
 const Home = () => {
   const [plants, setPlants] = useState([]);
