@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* handy button class */
+.my-btn {
+  @apply btn w-full bg-linear-to-r from-green-500 via-emerald-500 to-lime-500
+         text-white font-semibold border-none hover:scale-105 transition-transform duration-200;
+}

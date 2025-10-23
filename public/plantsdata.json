@@ -1,0 +1,109 @@
+[
+  {
+    "plantId": 1,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 18,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "Purifies air and thrives in low light.",
+    "image": "https://i.ibb.co.com/d4kvHRyK/slide1-11.jpg",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 2,
+    "plantName": "Peace Lily",
+    "category": "Flowering",
+    "price": 20,
+    "rating": 4.6,
+    "availableStock": 8,
+    "careLevel": "Moderate",
+    "description": "Elegant white flowers; likes indirect light.",
+    "image": "https://i.ibb.co.com/FqDL7Tsn/slide1-1.jpg",
+    "providerName": "Leaf & Light"
+  },
+  {
+    "plantId": 3,
+    "plantName": "ZZ Plant",
+    "category": "Low Light",
+    "price": 22,
+    "rating": 4.7,
+    "availableStock": 12,
+    "careLevel": "Easy",
+    "description": "Tolerant of neglect; glossy leaves.",
+    "image": "https://i.ibb.co.com/pBYDDxwd/slide1-4.jpg",
+    "providerName": "GreenCorner"
+  },
+  {
+    "plantId": 4,
+    "plantName": "Monstera",
+    "category": "Decor",
+    "price": 28,
+    "rating": 4.9,
+    "availableStock": 6,
+    "careLevel": "Moderate",
+    "description": "Iconic split leaves; bright, indirect light.",
+    "image": "https://i.ibb.co.com/vCQfrz2x/slide1-16.jpg",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 5,
+    "plantName": "Pothos",
+    "category": "Trailing",
+    "price": 15,
+    "rating": 4.5,
+    "availableStock": 15,
+    "careLevel": "Easy",
+    "description": "Fast-growing vine; great for shelves.",
+    "image": "https://i.ibb.co.com/LXt9CLTv/slide1-12.jpg",
+    "providerName": "Leaf & Light"
+  },
+  {
+    "plantId": 6,
+    "plantName": "Rubber Plant",
+    "category": "Statement",
+    "price": 24,
+    "rating": 4.6,
+    "availableStock": 9,
+    "careLevel": "Moderate",
+    "description": "Bold, waxy leaves; medium light.",
+    "image": "https://i.ibb.co.com/Pv2FPKYB/slide1-9.jpg",
+    "providerName": "GreenCorner"
+  },{
+    "plantId": 7,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 18,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "Purifies air and thrives in low light.",
+    "image": "https://i.ibb.co.com/Y4Ws2btb/slide1-25.jpg",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 8,
+    "plantName": "Peace Lily",
+    "category": "Flowering",
+    "price": 20,
+    "rating": 4.6,
+    "availableStock": 8,
+    "careLevel": "Moderate",
+    "description": "Elegant white flowers; likes indirect light.",
+    "image": "https://i.ibb.co.com/1GMn4mV2/slide1-24.jpg",
+    "providerName": "Leaf & Light"
+  },
+  {
+    "plantId": 9,
+    "plantName": "ZZ Plant",
+    "category": "Low Light",
+    "price": 22,
+    "rating": 4.7,
+    "availableStock": 12,
+    "careLevel": "Easy",
+    "description": "Tolerant of neglect; glossy leaves.",
+    "image": "https://i.ibb.co.com/pBYDDxwd/slide1-4.jpg",
+    "providerName": "GreenCorner"
+  }
+]
