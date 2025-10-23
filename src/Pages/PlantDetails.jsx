@@ -6,7 +6,7 @@ const PlantDetails = () => {
   const { id } = useParams();
   const [plants, setPlants] = useState([]);
 
-  useEffect(()=>{ fetch("../public/plantsdata.json").then(r=>r.json()).then(setPlants); },[]);
+  useEffect(()=>{ fetch("/plantsdata.json").then(r=>r.json()).then(setPlants); },[]);
   const plant = useMemo(()=> plants.find(p => String(p.plantId) === String(id)), [plants, id]);
 
   const handleBook = (e) => {

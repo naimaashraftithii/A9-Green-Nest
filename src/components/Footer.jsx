@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa";
-import logo from "../assets/logo1 (2).png";
+import logo from "../assets/logo1.png";
 
 const Footer = () => (
   <footer className="bg-linear-to-br from-green-50 via-emerald-50 to-green-100 text-gray-800 mt-20 pt-12 rounded-t-3xl shadow-inner">
-    {/* 🌿 Newsletter Section */}
+    {/*Newsletter Section */}
    <section
   className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between 
   bg-white/70 backdrop-blur-sm border border-green-200 rounded-2xl px-8 py-10 mb-10 
