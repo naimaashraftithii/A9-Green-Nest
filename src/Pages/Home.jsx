@@ -140,15 +140,15 @@ const Home = () => {
           </div>
         </section>
 
-        {/* 3️⃣ Other sections */}
+        {/* Home Others sections */}
         <SpringHistory />
         <BestOffers />
         <EcoDecorIdeas />
         <PlantCareTips />
         <BlogPostsCarousel />
-        <ExpertsGrid />
         <Testimonials />
         <ServicesSection />
+        <ExpertsGrid />
       </div>
     </>
   );

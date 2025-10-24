@@ -39,46 +39,68 @@ const Footer = () => {
       <div className="pointer-events-none absolute -top-24 -left-24 h-48 w-48 rounded-full bg-emerald-300/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-48 w-48 rounded-full bg-green-300/20 blur-3xl" />
 
-      {/* ---------------- Newsletter Section ---------------- */}
-      <section className="group max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-8 bg-white/60 backdrop-blur-sm border border-green-200 rounded-2xl px-6 md:px-10 py-10 mb-10 shadow-lg transition-all duration-500 hover:shadow-2xl hover:border-green-400 hover:bg-green-50/70 hover:-translate-y-1">
-        {/* Text Block */}
-        <div className="text-center md:text-left flex-1">
-          <h2 className="text-3xl md:text-4xl text-center font-bold font-serif text-green-700 mb-3 drop-shadow-sm transition-colors duration-300 group-hover:text-green-800">
-            🎄 Get{" "}
-            <span className="text-orange-600 text-5xl hover:text-7xl transition-all duration-300">
-              30%
-            </span>{" "}
-            Off 🎄
-          </h2>
-          <p className="text-gray-600 text-sm md:text-lg text-center leading-relaxed">
-            Sign up for our newsletter to stay updated on new arrivals & offers.
-          </p>
-        </div>
+      {/* Newsletter */}
+<section
+  className="group relative bg-white/70 border border-green-300 rounded-2xl shadow-lg 
+  transition-all duration-500 hover:shadow-2xl hover:border-green-500 
+  hover:bg-gradient-to-r hover:from-green-50 hover:via-green-200 hover:to-green-100 
+  py-10 px-6 md:px-10 mb-10"
+>
+  <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+    {/* Left Section (Top on small screens) */}
+    <div className="flex-1">
+      <h2 className="text-3xl md:text-4xl font-bold font-serif text-green-700 mb-3 drop-shadow-sm transition-colors duration-300 group-hover:text-green-800 text-center md:text-left">
+        🎄 Get{" "}
+        <span className="text-red-600 text-5xl md:text-6xl text-orange-300 transition-transform duration-300 group-hover:scale-110 inline-block">
+          30%
+        </span>{" "}
+        Off 🎄
+      </h2>
+      <p className="text-gray-600 text-sm md:text-lg leading-relaxed text-center md:text-left">
+        Sign up for our newsletter to stay updated on new arrivals & offers.
+      </p>
+    </div>
 
-        {/* Form Block */}
-        <form
-          onSubmit={handleSubscribe}
-          className="w-full flex flex-col sm:flex-row items-center justify-center text-center gap-3"
-        >
-          <input
-            name="email"
-            type="email"
-            placeholder="your@email.com"
-            className="bg-white/70 text-gray-700 border border-green-300 focus:border-green-400 focus:ring-2 focus:ring-green-300 px-4 py-2 rounded-lg shadow-sm transition-all duration-300 w-full sm:w-72 hover:scale-[1.02] focus:shadow-md"
-          />
+    {/* Right Section (Bottom on small screens) */}
+    <form
+      onSubmit={handleSubscribe}
+      className="flex flex-col sm:flex-row items-center justify-center w-full md:w-auto gap-3 text-center"
+    >
+      <input
+        name="email"
+        type="email"
+        placeholder="your@email.com"
+        className="bg-white/80 text-gray-700 border border-green-300 focus:border-green-400 focus:ring-2 focus:ring-green-300 px-4 py-2 rounded-lg shadow-sm transition-all duration-300 w-full sm:w-72 hover:scale-[1.02] focus:shadow-md"
+      />
+      <button
+        type="submit"
+        className="relative inline-flex items-center justify-center rounded-lg px-6 py-2 font-semibold text-white transition-all duration-300 
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2
+        [background:linear-gradient(90deg,#84cc16,#22c55e,#06b6d4,#a855f7,#ec4899,#f59e0b)]
+        bg-[length:200%_100%] animate-[moveGradient_4s_linear_infinite]
+        hover:scale-105 hover:shadow-lg active:scale-95"
+      >
+        <span className="relative z-10">Subscribe</span>
+        <span className="absolute inset-0 rounded-lg bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      </button>
+    </form>
+  </div>
+</section>
 
-          <button
-            type="submit"
-            className="relative inline-flex items-center justify-center rounded-lg px-6 py-2 font-semibold text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2
-            [background:linear-gradient(90deg,#84cc16,#22c55e,#06b6d4,#a855f7,#ec4899,#f59e0b)]
-            bg-[length:200%_100%] animate-[moveGradient_4s_linear_infinite]
-            hover:scale-105 hover:shadow-lg active:scale-95"
-          >
-            <span className="relative z-10">Subscribe</span>
-            <span className="absolute inset-0 rounded-lg bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          </button>
-        </form>
-      </section>
+<style>{`
+  @keyframes moveGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+`}</style>
+
+
+
+{/* Footer Content */}
+<div className="container mx-auto px-6 py-10 grid md:grid-cols-4 gap-10 border-t border-green-200">
+ 
+</div>
+
       {/* ✅ Properly closed section tag above */}
 
       {/* ---------------- Footer Main Content ---------------- */}
