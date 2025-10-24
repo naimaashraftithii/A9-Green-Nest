@@ -11,11 +11,14 @@ import ExpertsGrid from "../components/ExpertsGrid";
 import HeroParallaxCarousel from "../components/HeroParallaxCarousel";
 import ServicesSection from "../components/ServicesSection";
 import BestOffers from "../components/BestOffers";
+import SpringHistory from "../components/SpringHistory";
 
-// ---- Eco Decor Ideas (inline component) ----
+// ---- Eco Decor Ideas ----
 const EcoDecorIdeas = () => (
   <section className="p-6 rounded-2xl text-center bg-emerald-200 hover:bg-emerald-100 transform">
-    <h2 className="text-6xl font-extrabold text-black italic mb-2 pacifico-regular ">Eco Decor Ideas</h2>
+    <h2 className="text-6xl font-extrabold text-black italic mb-2 pacifico-regular">
+      Eco Decor Ideas
+    </h2>
     <p className="text-sm md:text-base text-gray-500 font-serif max-w-2xl md:max-w-3xl mx-auto leading-relaxed mb-7">
       It’s true when we say plants make people happy. We hope you’ll make any one of these
       plants an addition to your home.
@@ -52,7 +55,7 @@ const EcoDecorIdeas = () => (
           key={idx}
           className="rounded-xl overflow-hidden bg-blue-50 shadow hover:shadow-lg transition-all duration-300"
         >
-          {/* two images horizontally with border + gap */}
+          {/* two images horizontally */}
           <div className="flex gap-2 p-2 bg-white">
             {item.imgs.map((src, i) => (
               <div key={i} className="flex-1 overflow-hidden rounded-lg border-2 border-white">
@@ -102,48 +105,52 @@ const Home = () => {
   if (err) return <ErrorState message={err.message} onRetry={() => location.reload()} />;
 
   return (
-    <div className="container mx-auto space-y-16 py-8 px-4">
-      {/* Top Rated */}
-      <section>
-        <div className="flex flex-col sm:flex-row items-center justify-between mb-6">
-          <h2 className="text-3xl text-gray-800 font-bold mb-3 sm:mb-0">
-            Top Rated Indoor Plants
-          </h2>
+    <>
+      {/* 1️⃣ Hero Carousel at top */}
+      <HeroParallaxCarousel />
 
-          <Link
-            to="/plants"
-            className="btn relative overflow-hidden bg-gradient-to-r from-[#8a2387] via-[#e94057] via-[#ec008c] to-[#f27121]
-                       text-white font-semibold shadow-md border-none transition-all duration-300 ease-out
-                       hover:scale-[1.08] hover:shadow-xl hover:brightness-110 group"
-          >
-            <span className="relative z-10 flex items-center">
-              View All
-              <span className="ml-2 text-2xl font-extrabold transition-transform duration-300 group-hover:translate-x-1">
-                →
+      {/* 2️⃣ Top Rated Plants Section */}
+      <div className="container mx-auto space-y-16 py-8 px-4">
+        <section>
+          <div className="flex flex-col sm:flex-row items-center justify-between mb-6">
+            <h2 className="text-3xl text-gray-800 font-bold mb-3 sm:mb-0">
+              Top Rated Indoor Plants
+            </h2>
+
+            <Link
+              to="/plants"
+              className="btn relative overflow-hidden bg-gradient-to-r from-[#8a2387] via-[#e94057] via-[#ec008c] to-[#f27121]
+                         text-white font-semibold shadow-md border-none transition-all duration-300 ease-out
+                         hover:scale-[1.08] hover:shadow-xl hover:brightness-110 group"
+            >
+              <span className="relative z-10 flex items-center">
+                View All
+                <span className="ml-2 text-2xl font-extrabold transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
               </span>
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#fc6767] via-[#ec008c] to-[#f27121] opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-500" />
-          </Link>
-        </div>
+              <span className="absolute inset-0 bg-gradient-to-r from-[#fc6767] via-[#ec008c] to-[#f27121] opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-500" />
+            </Link>
+          </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {topRated.map((p) => (
-            <PlantCard key={p.plantId} p={p} />
-          ))}
-        </div>
-      </section>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {topRated.map((p) => (
+              <PlantCard key={p.plantId} p={p} />
+            ))}
+          </div>
+        </section>
 
-      {/* Extra sections */}
-      <HeroParallaxCarousel/>
-      <BestOffers/>
-      <EcoDecorIdeas />
-      <PlantCareTips />
-      <BlogPostsCarousel />
-      <ExpertsGrid />
-      
-      <Testimonials />
-      <ServicesSection/>
-    </div>
+        {/* 3️⃣ Other sections */}
+        <SpringHistory />
+        <BestOffers />
+        <EcoDecorIdeas />
+        <PlantCareTips />
+        <BlogPostsCarousel />
+        <ExpertsGrid />
+        <Testimonials />
+        <ServicesSection />
+      </div>
+    </>
   );
 };
 
