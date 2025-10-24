@@ -14,6 +14,7 @@ const Plants = () => {
     <div className="container mx-auto px-3 md:px-4 py-10">
       {/* Top Text Section */}
       <div className="text-center pb-6">
+        <p className="text-xl text-green-400 font-sans">THE BEST PRODUCTS</p>
         <h1 className="text-3xl md:text-5xl text-gray-700 font-bold mb-4">
           Discovery Category
         </h1>

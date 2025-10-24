@@ -1,14 +1,26 @@
-import React, { useEffect, useState } from "react";
+// src/Pages/Home.jsx
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
+import ErrorState from "../components/ErrorState";
 import PlantCard from "../components/PlantCard";
+import BlogPostsCarousel from "../components/BlogPostsCarousel";
+import Testimonials from "../components/Testimonials";
+import PlantCareTips from "../components/PlantCareTips";
+import ExpertsGrid from "../components/ExpertsGrid";
+import HeroParallaxCarousel from "../components/HeroParallaxCarousel";
+import ServicesSection from "../components/ServicesSection";
+import BestOffers from "../components/BestOffers";
 
-
-// Eco Decor Ideas
+// ---- Eco Decor Ideas (inline component) ----
 const EcoDecorIdeas = () => (
-  <section className="p-6 rounded-2xl text-center bg-emerald-200">
-    <h2 className="text-4xl font-bold text-gray-600 mb-4">Eco Decor Ideas</h2>
-    <p className=" text-sm md:text-base text-gray-500 font-serif max-w-2xl md:max-w-3xl mx-auto leading-relaxed mb-7">It’s true when we say plants make people happy. 
-      We hope you’ll make any one of these plants an addition to your home</p>
+  <section className="p-6 rounded-2xl text-center bg-emerald-200 hover:bg-emerald-100 transform">
+    <h2 className="text-6xl font-extrabold text-black italic mb-2 pacifico-regular ">Eco Decor Ideas</h2>
+    <p className="text-sm md:text-base text-gray-500 font-serif max-w-2xl md:max-w-3xl mx-auto leading-relaxed mb-7">
+      It’s true when we say plants make people happy. We hope you’ll make any one of these
+      plants an addition to your home.
+    </p>
+
     <div className="grid md:grid-cols-3 gap-6 text-gray-600">
       {[
         {
@@ -35,31 +47,27 @@ const EcoDecorIdeas = () => (
             "https://i.ibb.co/XZrDc4kp/23a26ecc3ab3a9d5b51fdaf896df2485.jpg",
           ],
         },
-      ].map((i, idx) => (
+      ].map((item, idx) => (
         <div
           key={idx}
           className="rounded-xl overflow-hidden bg-blue-50 shadow hover:shadow-lg transition-all duration-300"
         >
-          {/* Two images horizontally with white borders and gap */}
+          {/* two images horizontally with border + gap */}
           <div className="flex gap-2 p-2 bg-white">
-            {i.imgs.map((src, imgIdx) => (
-              <div
-                key={imgIdx}
-                className="flex-1 overflow-hidden rounded-lg border-2 border-white"
-              >
+            {item.imgs.map((src, i) => (
+              <div key={i} className="flex-1 overflow-hidden rounded-lg border-2 border-white">
                 <img
                   src={src}
-                  alt={i.title}
+                  alt={item.title}
                   className="h-56 w-full object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
             ))}
           </div>
 
-          {/* Text */}
           <div className="p-4">
-            <h3 className="font-semibold text-gray-800">{i.title}</h3>
-            <p className="text-sm opacity-80">{i.text}</p>
+            <h3 className="font-semibold text-gray-800">{item.title}</h3>
+            <p className="text-sm opacity-80">{item.text}</p>
           </div>
         </div>
       ))}
@@ -67,56 +75,57 @@ const EcoDecorIdeas = () => (
   </section>
 );
 
-
-
-
-
+// ---- Page ----
 const Home = () => {
   const [plants, setPlants] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
     fetch("/plantsdata.json")
-      .then((r) => r.json())
-      .then(setPlants)
-      .catch(console.error);
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then((data) => setPlants(data))
+      .catch((e) => setErr(e))
+      .finally(() => setLoading(false));
   }, []);
 
-  const topRated = [...plants].sort((a, b) => b.rating - a.rating).slice(0, 8);
+  const topRated = useMemo(
+    () => [...plants].sort((a, b) => b.rating - a.rating).slice(0, 8),
+    [plants]
+  );
+
+  if (loading) return <Loader label="Loading plants..." />;
+  if (err) return <ErrorState message={err.message} onRetry={() => location.reload()} />;
 
   return (
     <div className="container mx-auto space-y-16 py-8 px-4">
-      {/* --- Top Rated Section --- */}
+      {/* Top Rated */}
       <section>
-        {/* Header Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between mb-6">
           <h2 className="text-3xl text-gray-800 font-bold mb-3 sm:mb-0">
             Top Rated Indoor Plants
           </h2>
 
-          {/* View All Button (Link to /plants) */}
-  <Link
-  to="/plants"
-  className="btn relative overflow-hidden 
-  bg-gradient-to-r from-[#8a2387] via-[#e94057] via-[#ec008c] to-[#f27121]
-  text-white font-semibold shadow-md border-none
-  transition-all duration-300 ease-out
-  hover:scale-[1.08] hover:shadow-xl hover:brightness-110 group"
->
-  <span className="relative z-10 flex items-center">
-    View All
-    <span className="ml-2 text-2xl font-extrabold transition-transform duration-300 group-hover:translate-x-1">
-      →
-    </span>
-  </span>
-
-  {/* glowing hover overlay */}
-  <span className="absolute inset-0 bg-gradient-to-r from-[#fc6767] via-[#ec008c] to-[#f27121] opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-500"></span>
-</Link>
-
-
+          <Link
+            to="/plants"
+            className="btn relative overflow-hidden bg-gradient-to-r from-[#8a2387] via-[#e94057] via-[#ec008c] to-[#f27121]
+                       text-white font-semibold shadow-md border-none transition-all duration-300 ease-out
+                       hover:scale-[1.08] hover:shadow-xl hover:brightness-110 group"
+          >
+            <span className="relative z-10 flex items-center">
+              View All
+              <span className="ml-2 text-2xl font-extrabold transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </span>
+            <span className="absolute inset-0 bg-gradient-to-r from-[#fc6767] via-[#ec008c] to-[#f27121] opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-500" />
+          </Link>
         </div>
 
-        {/* Plant Cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {topRated.map((p) => (
             <PlantCard key={p.plantId} p={p} />
@@ -124,8 +133,16 @@ const Home = () => {
         </div>
       </section>
 
-      {/* --- Eco Decor Ideas Section --- */}
+      {/* Extra sections */}
+      <HeroParallaxCarousel/>
+      <BestOffers/>
       <EcoDecorIdeas />
+      <PlantCareTips />
+      <BlogPostsCarousel />
+      <ExpertsGrid />
+      
+      <Testimonials />
+      <ServicesSection/>
     </div>
   );
 };

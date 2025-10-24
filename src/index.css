@@ -14,3 +14,9 @@
   font-weight: 900;
   font-style: italic;
 }
+
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 600;
+  font-style: normal;
+}

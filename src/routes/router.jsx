@@ -10,6 +10,7 @@ import PlantDetails from "../Pages/PlantDetails";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import Profile from "../Pages/Profile";
+import ErrorPage from "../Pages/ErrorPage";
 
 // Components
 import ProtectedRoute from "../components/ProtectedRoute";
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,   // <— here
     children: [
       // Public routes
       { index: true, element: <Home /> },
