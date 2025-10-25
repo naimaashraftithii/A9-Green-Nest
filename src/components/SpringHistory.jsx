@@ -3,11 +3,8 @@ import React from "react";
 const SpringHistory = () => {
   return (
     <section className="relative overflow-hidden bg-white">
-      {/* Top fade */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-50/50 to-transparent" />
-
       <div className="container mx-auto px-4 py-16 sm:py-20 lg:py-24 text-center">
-        {/* Eyebrow */}
         <p className="tracking-[0.2em] text-[12px] sm:text-xs font-semibold text-emerald-700/80 uppercase">
           A little story about us
         </p>
@@ -16,8 +13,6 @@ const SpringHistory = () => {
         <h2 className="mt-3 text-3xl sm:text-4xl md:text-[42px] font-serif font-bold text-[#3e2f26]">
           Spring History
         </h2>
-
-        {/* Divider */}
        <div className="
                   mx-auto mt-4 
                   h-0.5 w-56 rounded-full

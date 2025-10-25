@@ -106,9 +106,10 @@ const Home = () => {
 
   return (
     <>
+      
       {/*  Hero Carousel  */}
       <HeroParallaxCarousel />
-
+      <SpringHistory />
       {/* Top Rated Plants  */}
       <div className="container mx-auto space-y-16 py-8 px-4">
         <section>
@@ -141,7 +142,7 @@ const Home = () => {
         </section>
 
         {/* Home Others sections */}
-        <SpringHistory />
+        
         <BestOffers />
         <EcoDecorIdeas />
         <PlantCareTips />

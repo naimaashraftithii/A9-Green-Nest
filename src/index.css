@@ -2,7 +2,7 @@
 @plugin "daisyui";
 @import url('https://fonts.googleapis.com/css2?family=Lustria:ital,wght@0,400;1,700&display=swap');
 
-/* handy button class */
+/* button class */
 .my-btn {
   @apply btn w-full bg-linear-to-r from-green-500 via-emerald-500 to-lime-500
          text-white font-semibold border-none hover:scale-105 transition-transform duration-200;

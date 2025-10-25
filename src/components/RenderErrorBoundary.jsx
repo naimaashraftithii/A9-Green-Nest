@@ -7,7 +7,7 @@ export default class RenderErrorBoundary extends React.Component {
   static getDerivedStateFromError(error) {
     return { hasError: true, error };
   }
-  componentDidCatch(error, info) { /* log if you want */ }
+  componentDidCatch(error, info) { /* loghere */ }
 
   render() {
     if (this.state.hasError) {

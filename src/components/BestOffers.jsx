@@ -138,9 +138,9 @@ const BestOffers = () => {
       <section className="py-16 bg-white">
         {/* Title */}
         <div className="text-center mb-10">
-          <p className="text-teal-600 pacifico-regular text-lg">Hot</p>
+          <p className="text-teal-600 pacifico-regular text-lg">Hot Offers</p>
           <h2 className="text-[2.1rem] sm:text-4xl font-extrabold text-[#4b3426] tracking-wide uppercase">
-            Our Best Offers
+            Our Best Offers - Plant of the Week
           </h2>
         </div>
 
@@ -155,7 +155,7 @@ const BestOffers = () => {
             </div>
           </div>
 
-          {/* Right side - taller card */}
+          {/* Right side  */}
           <BannerCard item={offers[1]} size="tall" align="left" />
         </div>
       </section>

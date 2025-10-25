@@ -17,7 +17,7 @@ const tips = [
     title: "Fertilizing",
     text:
       "Feed monthly during spring–summer with a balanced liquid fertilizer, skip in winter.",
-    icon: "🌿",
+    icon: "🌱",
   },
 ];
 

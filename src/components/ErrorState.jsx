@@ -40,7 +40,7 @@ const ErrorState = ({
             to="/"
             className="px-5 py-2 rounded-lg bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
           >
-            🏠 Go Home
+            Go Home 🏠
           </Link>
         </div>
       </div>

@@ -35,7 +35,6 @@ const Footer = () => {
 
   return (
     <footer className="relative mt-20 pt-12 bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 text-gray-800 rounded-t-3xl shadow-inner overflow-hidden">
-      {/* glow accents */}
       <div className="pointer-events-none absolute -top-24 -left-24 h-48 w-48 rounded-full bg-emerald-300/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-48 w-48 rounded-full bg-green-300/20 blur-3xl" />
 
@@ -61,7 +60,7 @@ const Footer = () => {
       </p>
     </div>
 
-    {/* Right Section small screens) */}
+    {/* small screens) */}
     <form
       onSubmit={handleSubscribe}
       className="flex flex-col sm:flex-row items-center justify-center w-full md:w-auto gap-3 text-center"

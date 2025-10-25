@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
   const updateUser = (displayName, photoURL) =>
     updateProfile(auth.currentUser, { displayName, photoURL });
 
-  //user photoURL
+  //photoURL
   const ensureUserPhoto = async (u) => {
     try {
       if (u && !u.photoURL) {
