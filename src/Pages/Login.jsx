@@ -50,79 +50,121 @@ const Login = () => {
 
   return (
     <div
-      className="bg-amber-50 text-gray-800 min-h-screen flex flex-col lg:flex-row items-center justify-center 
-                 gap-10 px-5 py-10 text-center bg-gradient-to-br from-green-50 to-white"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage:
+          "url('https://i.ibb.co.com/RkjVHbtZ/953c87670b9c9e822f23e0ed30e6a891.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
-      {/* Left side (welcome text) */}
-      <div className="lg:w-1/2 flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold text-green-600 mb-2">Welcome Back </h1>
-        <p className="text-gray-600 text-base max-w-md">
-          Login to manage your plants, track your care routine, and discover new green friends!
-        </p>
+      {/* ✅ Softer, transparent overlay */}
+      <div className="absolute inset-0 bg-white/18 backdrop-blur-[0.5px]" />
+
+      {/* Subtle animated depth glow */}
+      <div className="pointer-events-none absolute inset-0 opacity-60">
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent animate-[pulse_8s_ease-in-out_infinite]" />
       </div>
 
-      {/* Right side (login form) */}
-      <div className="lg:w-1/2 flex flex-col items-center justify-center w-full">
-        <form
-          onSubmit={handleLogin}
-          className="space-y-4 bg-white shadow-lg rounded-xl p-8 w-full max-w-md text-left"
-        >
-          <h2 className="text-2xl font-semibold text-center text-gray-800 mb-2">Login</h2>
-
-          <input
-            ref={emailRef}
-            name="email"
-            type="email"
-            className="input input-bordered w-full"
-            placeholder="Email"
-            required
+      <div className="relative z-10 container mx-auto px-5 py-12 grid lg:grid-cols-2 gap-10">
+        {/* LEFT: image + heading (center on small screens) */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <img
+            src="https://i.ibb.co.com/zhR23jqM/login.png"
+            alt="Login"
+            className="w-[210px] h-[210px] md:w-[250px] md:h-[250px] lg:w-[270px] lg:h-[270px]
+                       object-contain drop-shadow-xl
+                       transition-transform duration-500 ease-out
+                       hover:scale-[1.05] hover:-translate-y-1
+                       animate-[float_4s_ease-in-out_infinite]"
           />
+          <h1 className="mt-5 text-3xl md:text-4xl font-extrabold text-white tracking-tight drop-shadow-sm">
+            Welcome Back
+          </h1>
+          <p className="mt-2 text-gray-100 max-w-md">
+            Log in to manage your plants, track your care routine, and discover new green friends!
+          </p>
+        </div>
 
-          <div className="relative">
+        {/* RIGHT: white form with gray text */}
+        <div className="w-full flex items-center justify-center">
+          <form
+            onSubmit={handleLogin}
+            className="bg-white/95 backdrop-blur-md rounded-2xl p-8 shadow-2xl space-y-4 max-w-md w-full
+                       border border-emerald-200 transition-all duration-500 hover:shadow-green-300 text-gray-700"
+          >
+            <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
+
             <input
-              name="password"
-              type={show ? "text" : "password"}
-              className="input input-bordered w-full pr-10"
-              placeholder="Password"
+              ref={emailRef}
+              name="email"
+              type="email"
+              className="input input-bordered w-full bg-white focus:ring-2 focus:ring-emerald-400 transition-all"
+              placeholder="Email"
               required
             />
+
+            <div className="relative">
+              <input
+                name="password"
+                type={show ? "text" : "password"}
+                className="input input-bordered w-full pr-10 bg-white focus:ring-2 focus:ring-emerald-400 transition-all"
+                placeholder="Password"
+                required
+              />
+              <button
+                type="button"
+                className="absolute right-3 top-3 text-gray-500 hover:text-green-600 transition"
+                onClick={() => setShow((s) => !s)}
+                aria-label="Toggle password visibility"
+              >
+                {show ? <FaEye /> : <IoEyeOff />}
+              </button>
+            </div>
+
             <button
               type="button"
-              className="absolute right-3 top-3 text-gray-500"
-              onClick={() => setShow((s) => !s)}
+              className="link text-sm text-emerald-700 font-semibold hover:underline"
+              onClick={handleForgot}
             >
-              {show ? <FaEye /> : <IoEyeOff />}
+              Forgot Password?
             </button>
-          </div>
 
-          <button
-            type="button"
-            className="link text-sm text-blue-900 hover:underline"
-            onClick={handleForgot}
-          >
-            Forgot Password?
-          </button>
+            <button
+              className="w-full py-2 font-semibold text-white rounded-lg
+                         bg-gradient-to-r from-green-600 via-emerald-500 to-lime-500
+                         hover:from-green-500 hover:to-emerald-600
+                         transition-all duration-300 transform hover:scale-[1.03] shadow-md"
+            >
+              Login
+            </button>
 
-          <button className="my-btn w-full bg-green-600 text-white hover:bg-green-700 transition">
-            Login
-          </button>
+            <button
+              type="button"
+              onClick={handleGoogle}
+              className="btn w-full bg-white border border-gray-300 hover:border-emerald-500 text-gray-700 hover:text-green-700 transition-all"
+            >
+              Continue with Google
+            </button>
 
-          <button
-            type="button"
-            onClick={handleGoogle}
-            className="btn w-full border border-gray-300 hover:border-b-indigo-900 text-emerald-600"
-          >
-            Continue with Google
-          </button>
-
-          <p className="text-sm text-center text-black">
-            New here?{" "}
-            <Link to="/signup" className="link text-blue-800 hover:underline">
-              Create an account
-            </Link>
-          </p>
-        </form>
+            <p className="text-sm font-medium text-gray-700 text-center">
+              New here?{" "}
+              <Link to="/signup" className="text-emerald-600 font-semibold hover:underline">
+                Create an account
+              </Link>
+            </p>
+          </form>
+        </div>
       </div>
+
+      {/* keyframes for floating image */}
+      <style>{`
+        @keyframes float {
+          0%   { transform: translateY(0px) }
+          50%  { transform: translateY(-10px) }
+          100% { transform: translateY(0px) }
+        }
+      `}</style>
     </div>
   );
 };

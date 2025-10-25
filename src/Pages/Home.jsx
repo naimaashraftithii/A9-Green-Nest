@@ -78,7 +78,7 @@ const EcoDecorIdeas = () => (
   </section>
 );
 
-// ---- Page ----
+// Page 
 const Home = () => {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -106,10 +106,10 @@ const Home = () => {
 
   return (
     <>
-      {/* 1️⃣ Hero Carousel at top */}
+      {/*  Hero Carousel Section */}
       <HeroParallaxCarousel />
 
-      {/* 2️⃣ Top Rated Plants Section */}
+      {/* Top Rated Plants Section */}
       <div className="container mx-auto space-y-16 py-8 px-4">
         <section>
           <div className="flex flex-col sm:flex-row items-center justify-between mb-6">

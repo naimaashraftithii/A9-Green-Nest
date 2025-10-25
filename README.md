@@ -1,16 +1,35 @@
-# React + Vite
+# 🌱 GreenNest – Indoor Plant Care & Store 🌱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Purpose: GreenNest is a single-page React application for plant lovers to explore care tips, browse indoor plants, and book expert consultations—blending a calm, nature-inspired UI with secure authentication and protected routes.
+GreenNest  - helps users discover indoor plants, learn simple care routines, and connect with experts—making plant parenting easier and homes greener, all within a modern, secure, services and pleasant web experience.
+ 
 
-Currently, two official plugins are available:
+## # **Live URL: https://greennet-app.netlify.app**
+#**GitHub Link : https://github.com/naimaashraftithii/A9-Green-Nest.git**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+# Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Responsive SPA- with a persistent Navbar & Footer
+Home page sections: Hero parallax/slider, Top-Rated Plants, Care Tips, Experts, Testimonials, Services, Best Offers, Eco Decor Ideas
+Plants catalogue loaded from local JSON (`plantsdata.json`)
+Plant details (Protected): full info + “Book Consultation” form with toast confirmation
+Authentication: Email/Password, Google Sign-In, Forgot Password, password show/hide
+Profile (Protected): view/update `displayName` and `photoURL` via Firebase `updateProfile()`
+UX feedback:toasts for success/error, graceful loading & error states
+Clean, soothing design using Tailwind utilities and  animations
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# NPM Packages Used
+
+	**react, react-dom** – UI framework
+	**vite** – fast dev server and build tool
+	**react-router-dom** – routing and protected routes
+	**firebase**– authentication (email/password, Google, reset password)
+	**tailwindcss** – utility-first styling
+	***daisyui ****– Tailwind component styles/theme (category-aligned)
+	**swiper** – hero/carousel sliders (parallax, autoplay, pagination)
+	**react-toastify**– toast notifications
+   **react-icons** – icon set for services/socials
+
+
