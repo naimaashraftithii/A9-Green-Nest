@@ -4,8 +4,8 @@ Purpose: GreenNest is a single-page React application for plant lovers to explor
 GreenNest  - helps users discover indoor plants, learn simple care routines, and connect with experts—making plant parenting easier and homes greener, all within a modern, secure, services and pleasant web experience.
  
 
-## # **Live URL: https://greennet-app.netlify.app**
-#**GitHub Link : https://github.com/naimaashraftithii/A9-Green-Nest.git**
+**Live URL: https://greeenet.netlify.app**
+**GitHub Link :  https://github.com/naimaashraftithii/A9-Green-Nest.git**
 
 
 # Key Features

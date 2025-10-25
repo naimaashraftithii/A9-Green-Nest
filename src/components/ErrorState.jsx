@@ -45,7 +45,7 @@ const ErrorState = ({
         </div>
       </div>
 
-      {/* Animation styling */}
+      {/* Animation*/}
       <style>{`
         @keyframes bounce-slow {
           0%, 100% { transform: translateY(0); }
