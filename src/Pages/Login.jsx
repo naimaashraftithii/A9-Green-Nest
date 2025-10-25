@@ -53,22 +53,22 @@ const Login = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage:
-          "url('https://i.ibb.co.com/RkjVHbtZ/953c87670b9c9e822f23e0ed30e6a891.jpg')",
+          "url('https://i.ibb.co.com/2Yh6MDCq/953c87670b9c9e822f23e0ed30e6a891.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* ✅ Softer, transparent overlay */}
+      {/* bg transparent overlay */}
       <div className="absolute inset-0 bg-white/18 backdrop-blur-[0.5px]" />
 
-      {/* Subtle animated depth glow */}
+      {/* animated  */}
       <div className="pointer-events-none absolute inset-0 opacity-60">
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent animate-[pulse_8s_ease-in-out_infinite]" />
       </div>
 
       <div className="relative z-10 container mx-auto px-5 py-12 grid lg:grid-cols-2 gap-10">
-        {/* LEFT: image + heading (center on small screens) */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+        {/* left: image  */}
+        <div className=" flex flex-col items-center lg:items-start text-center lg:text-left">
           <img
             src="https://i.ibb.co.com/zhR23jqM/login.png"
             alt="Login"
@@ -78,15 +78,17 @@ const Login = () => {
                        hover:scale-[1.05] hover:-translate-y-1
                        animate-[float_4s_ease-in-out_infinite]"
           />
-          <h1 className="mt-5 text-3xl md:text-4xl font-extrabold text-white tracking-tight drop-shadow-sm">
+      
+           <h1 className=" text-3xl md:text-4xl font-extrabold text-white tracking-tight drop-shadow-sm">
             Welcome Back
           </h1>
           <p className="mt-2 text-gray-100 max-w-md">
             Log in to manage your plants, track your care routine, and discover new green friends!
           </p>
+        
         </div>
 
-        {/* RIGHT: white form with gray text */}
+        {/* right: form */}
         <div className="w-full flex items-center justify-center">
           <form
             onSubmit={handleLogin}
@@ -132,7 +134,7 @@ const Login = () => {
 
             <button
               className="w-full py-2 font-semibold text-white rounded-lg
-                         bg-gradient-to-r from-green-600 via-emerald-500 to-lime-500
+                         bg-linear-to-r from-green-600 via-emerald-500 to-lime-500
                          hover:from-green-500 hover:to-emerald-600
                          transition-all duration-300 transform hover:scale-[1.03] shadow-md"
             >
@@ -157,7 +159,7 @@ const Login = () => {
         </div>
       </div>
 
-      {/* keyframes for floating image */}
+      {/* for floating image */}
       <style>{`
         @keyframes float {
           0%   { transform: translateY(0px) }

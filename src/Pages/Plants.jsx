@@ -12,9 +12,9 @@ const Plants = () => {
 
   return (
     <div className="container mx-auto px-3 md:px-4 py-10">
-      {/* Top Text Section */}
+      {/* top*/}
       <div className="text-center pb-6">
-        <p className="text-xl text-green-400 font-sans">THE BEST PRODUCTS</p>
+        <p className="text-xl text-green-600 font-bold font-sans">THE BEST PRODUCTS</p>
         <h1 className="text-3xl md:text-5xl text-gray-700 font-bold mb-4">
           Discovery Category
         </h1>
@@ -25,7 +25,8 @@ const Plants = () => {
           the experience of being a plant parent as wonderful as plants
           themselves.
         </p>
-        <button className=" btn btn-soft btn-success  font-semibold text-gray-900 bg-emerald-300"> Learn More <span className="font-extrabold text-4xl text-center"> → </span></button> 
+        <button className=" btn btn-soft btn-success  font-semibold text-gray-900 border-0 bg-emerald-300
+         hover:bg-orange-300 hover:text-2xl "> Learn More <span className="font-extrabold text-4xl text-center"> → </span></button> 
       </div>
 
       {/* Grid of Plants */}

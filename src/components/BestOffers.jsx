@@ -1,10 +1,8 @@
-// src/components/BestOffers.jsx
+
 import React from "react";
 import { Link } from "react-router-dom";
 
-/* Add this once in your index.html <head>:
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-*/
+
 
 const offers = [
   {
@@ -38,7 +36,7 @@ function BannerCard({ item, size = "sm", align = "left" }) {
     size === "lg"
       ? "h-[18rem] sm:h-[22rem] lg:h-[26rem]"
       : size === "tall"
-      ? "h-[35rem] sm:h-[40rem] lg:h-[47rem]" // ⬆ slightly taller for right-side balance
+      ? "h-[35rem] sm:h-[40rem] lg:h-[47rem]" 
       : "h-[14rem] sm:h-[16rem] lg:h-[18rem]";
 
   const alignBox =
@@ -65,7 +63,7 @@ function BannerCard({ item, size = "sm", align = "left" }) {
       <div className="absolute inset-0 bg-black/35" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
-      {/* Animated light sweep */}
+      {/* Light sweep */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[120%] group-hover:translate-x-[120%] duration-[1200ms]" />
       </div>
@@ -121,7 +119,7 @@ function BannerCard({ item, size = "sm", align = "left" }) {
   );
 }
 
-// Keyframe for gradient animation
+//gradient animation
 const gradientAnimation = `
 @keyframes gradient-x {
   0%, 100% { background-position: 0% 50%; }
@@ -148,7 +146,7 @@ const BestOffers = () => {
 
         {/* Grid */}
         <div className="max-w-[1150px] mx-auto grid gap-7 md:grid-cols-3 px-4">
-          {/* Left column cluster */}
+          {/* Left column  */}
           <div className="md:col-span-2 grid gap-7">
             <BannerCard item={offers[0]} size="lg" align="left" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">

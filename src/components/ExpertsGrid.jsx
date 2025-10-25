@@ -10,7 +10,7 @@ const experts = [
 export default function ExpertsGrid() {
   return (
     <section className="rounded-2xl bg-white pb-12">
-      {/* Header */}
+      {/* Top */}
       <div className="text-center pt-10 mb-4">
         <p className="text-2xl font-extrabold text-emerald-400 pacifico-regular">
           WHO ARE WE ?
@@ -31,7 +31,7 @@ export default function ExpertsGrid() {
             className="group relative p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-100 
             text-center shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.04]"
           >
-            {/* Subtle rotating glow */}
+            {/*rotating  */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-green-200/40 via-yellow-200/30 to-pink-200/40 blur-2xl rounded-2xl -z-10"></div>
 
             {/* Avatar */}
@@ -51,7 +51,7 @@ export default function ExpertsGrid() {
               {e.spec}
             </p>
 
-            {/* Glow underline animation */}
+            {/* underline animation */}
             <span className="block mt-3 mx-auto w-0 group-hover:w-20 h-0.5 bg-gradient-to-r from-emerald-400 to-pink-400 transition-all duration-500"></span>
           </div>
         ))}

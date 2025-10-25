@@ -18,7 +18,13 @@ const SpringHistory = () => {
         </h2>
 
         {/* Divider */}
-        <div className="mx-auto mt-4 h-px w-24 bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
+       <div className="
+                  mx-auto mt-4 
+                  h-0.5 w-56 rounded-full
+                  bg-gradient-to-r from-transparent via-emerald-300 to-transparent
+                  transition-all duration-500 
+               hover:via-orange-400 hover:scale-105 "/>
+
 
         {/* Description */}
         <p className="mx-auto mt-6 max-w-3xl text-[15px] sm:text-base leading-7 text-gray-600">
@@ -30,15 +36,16 @@ const SpringHistory = () => {
         </p>
 
         {/* Quote */}
-        <p className="mx-auto mt-6 max-w-2xl italic text-[15px] sm:text-base text-gray-500">
-          There is no such thing as a green thumb. Plants take practice —
-          just like anything else. The good news is — We’re here to help.
+        <p className="mx-auto mt-6 max-w-2xl pacifico-regular text-[20px] sm:text-base text-gray-800">
+          ❝ There is no such thing as a green thumb. Plants take practice —
+          just like anything else. The good news is — We’re here to help....!!! ❞
+    
         </p>
 
-        {/* Signature block */}
-        <div className="mt-10 flex flex-col items-center gap-3">
-          {/* Signature image */}
-          <div className="flex justify-center">
+        {/* Signature */}
+        <div className="mt-10  flex flex-col items-center gap-3">
+          {/*image */}
+          <div className="flex justify-center ">
             <img
               src="https://see.fontimg.com/api/rf5/mOBm/ODFlOTRmYzJjNmIzNGU2ZWExNWI1NzM5ZTVlMDAyNGEudHRm/TmFpbWFhc2hyYWZUaXRoaQ/autograf-personal-use-only.png?r=fs&h=80&w=1000&fg=111111&bg=FFFFFF&tb=1&s=80"
               alt="Signature of Naima Ashraf Tithi"
@@ -47,7 +54,7 @@ const SpringHistory = () => {
             />
           </div>
 
-          {/* Name and role */}
+          {/* Name and deg */}
           <div className="text-center">
             <div className="text-sm sm:text-base font-semibold tracking-wide text-gray-700">
               Naima Ashraf Tithi
@@ -59,7 +66,7 @@ const SpringHistory = () => {
         </div>
       </div>
 
-      {/* Bottom fade */}
+      {/* Bottom */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-emerald-50/50 to-transparent" />
     </section>
   );

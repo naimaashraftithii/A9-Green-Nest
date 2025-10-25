@@ -39,7 +39,7 @@ const Signup = () => {
     }
   };
 
-  // ✅ define it so JSX can call it
+  //handle google
   const handleGoogle = async () => {
     try {
       await googleLogin();
@@ -55,7 +55,7 @@ const Signup = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage:
-          "url('https://i.ibb.co.com/fYQMFxVR/e7dbd673df7e98e772026323b5bb91f5.jpg')",
+          "url('https://i.ibb.co.com/s8yxHRz/00a09ce1e1d2f13b5fe2e24cfa386f45.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -78,17 +78,17 @@ const Signup = () => {
             Create Your Account
           </h1>
           <p className="mt-2 text-gray-100 max-w-md">
-            Join <span className="font-bold text-lime-300">GreenNest</span> and grow greener — inspire others.
+            Join <span className="font-bold text-emerald-300 font-serif hover:text-amber-600">Green<span className="inter_Lustria">Nest</span></span>  and grow greener — inspire others.
           </p>
         </div>
 
         <form
           onSubmit={handleSignup}
-          className="bg-white/95 backdrop-blur-md rounded-2xl p-8 shadow-2xl space-y-4 max-w-md w-full mx-auto
+          className="bg-white/85 backdrop-blur-md rounded-2xl p-8 shadow-2xl space-y-4 max-w-md w-full mx-auto
                      border border-emerald-200 transition-all duration-500 hover:shadow-green-300 text-gray-700"
         >
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-1">
-            🌱 Sign Up to GreenNest 🌱
+            Sign Up to GreenNest 
           </h2>
 
           <input

@@ -1,12 +1,11 @@
-// src/components/Loader.jsx
-export default function Loader({ label = "Loading..." }) {
-  return (
-    <div className="min-h-[40vh] grid place-items-center">
-      <div className="flex flex-col items-center gap-3">
-        <img src="/asset/logo.png" className="h-16 w-16 animate-spin" alt="loading" />
-        <p className="opacity-75">{label}</p>
-      </div>
-    </div>
-  );
-}
+import React from "react";
+import { useRouteError } from "react-router-dom";
+import ErrorState from "../components/ErrorState";
 
+export default function ErrorPage() {
+  const err = useRouteError();
+  const msg =
+    (err && (err.statusText || err.message)) ||
+    "We couldn’t load the page right now. Please try again.";
+  return <ErrorState title="Page Error" message={msg} onRetry={() => location.reload()} />;
+}

@@ -34,7 +34,7 @@ export default function Testimonials() {
         Our Testimonials
       </h2>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 mt-10">
+      <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 mt-10">
         {testimonials.map((t, i) => (
           <figure
             key={i}
@@ -45,7 +45,7 @@ export default function Testimonials() {
               hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.01]
             "
           >
-            {/* glow ring on hover */}
+            {/* border hover ring */}
             <span
               className="
                 pointer-events-none absolute inset-0 rounded-2xl
@@ -54,7 +54,7 @@ export default function Testimonials() {
               "
             />
 
-            {/* corner gradient sweep */}
+            {/*corner gradient */}
             <span
               className="
                 pointer-events-none absolute -top-24 -right-24 h-48 w-48
@@ -63,30 +63,29 @@ export default function Testimonials() {
                 transition-opacity duration-500
               "
             />
-
-            {/* quote accent */}
-            <div className="absolute -top-1 -left-1">
-              <div
-                className="
-                  translate-x-[-10px] translate-y-[-10px] rotate-[-8deg]
-                  text-6xl text-emerald-400/20 group-hover:text-emerald-400/30
-                  transition-colors duration-300 select-none
-                "
-              >
-                “
-              </div>
+           <div className="border-2 shadow-2xl">
+            {/* open quote */}
+            <div className="absolute top-3 left-4 text-7xl text-emerald-400/20 group-hover:text-emerald-400/30 font-serif select-none">
+              ❝
             </div>
 
             {/* content */}
             <blockquote
               className="
-                text-gray-700 leading-relaxed
+                relative z-10 text-gray-700 leading-relaxed mt-8
                 transition-transform duration-300 group-hover:translate-y-[-2px]
               "
             >
               {t.text}
+              {/* close quote*/}
+              <span className="text-7xl text-emerald-400/20 float-right translate-y-[-10px]">
+               ❞
+              </span>
             </blockquote>
 
+           </div>
+            
+            {/* user-info */}
             <figcaption className="flex items-center gap-3 mt-5">
               <div
                 className="
@@ -110,9 +109,11 @@ export default function Testimonials() {
               </div>
             </figcaption>
 
-            {/* subtle tilt on hover */}
+            {/*hover */}
             <style>{`
-              .group:hover { transform: perspective(900px) rotateX(0.6deg) rotateY(-0.6deg) scale(1.01); }
+              .group:hover {
+                transform: perspective(900px) rotateX(0.6deg) rotateY(-0.6deg) scale(1.01);
+              }
             `}</style>
           </figure>
         ))}

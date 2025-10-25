@@ -11,7 +11,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       await updateUser(name, photo);
-      // reflect immediately
+      // real-time change
       setUser({...user, displayName: name, photoURL: photo});
       toast.success("Profile updated!");
     } catch (err) {

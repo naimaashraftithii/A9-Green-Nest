@@ -1,4 +1,4 @@
-// src/Pages/Home.jsx
+
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
@@ -13,7 +13,7 @@ import ServicesSection from "../components/ServicesSection";
 import BestOffers from "../components/BestOffers";
 import SpringHistory from "../components/SpringHistory";
 
-// ---- Eco Decor Ideas ----
+//  Eco Decor Ideas 
 const EcoDecorIdeas = () => (
   <section className="p-6 rounded-2xl text-center bg-emerald-200 hover:bg-emerald-100 transform">
     <h2 className="text-6xl font-extrabold text-black italic mb-2 pacifico-regular">
@@ -55,7 +55,7 @@ const EcoDecorIdeas = () => (
           key={idx}
           className="rounded-xl overflow-hidden bg-blue-50 shadow hover:shadow-lg transition-all duration-300"
         >
-          {/* two images horizontally */}
+          
           <div className="flex gap-2 p-2 bg-white">
             {item.imgs.map((src, i) => (
               <div key={i} className="flex-1 overflow-hidden rounded-lg border-2 border-white">
@@ -78,7 +78,7 @@ const EcoDecorIdeas = () => (
   </section>
 );
 
-// Page 
+// Page of home
 const Home = () => {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -106,10 +106,10 @@ const Home = () => {
 
   return (
     <>
-      {/*  Hero Carousel Section */}
+      {/*  Hero Carousel  */}
       <HeroParallaxCarousel />
 
-      {/* Top Rated Plants Section */}
+      {/* Top Rated Plants  */}
       <div className="container mx-auto space-y-16 py-8 px-4">
         <section>
           <div className="flex flex-col sm:flex-row items-center justify-between mb-6">

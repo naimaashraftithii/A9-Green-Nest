@@ -41,7 +41,7 @@ const Navbar = () => {
             <li><NavLink to="/profile" className={navLinkClass}>My Profile</NavLink></li>
           </ul>
 
-          {/* Right Controls */}
+          {/* Right */}
           <div className="hidden md:flex items-center gap-2">
             {user ? (
               <div className="dropdown dropdown-end">
@@ -79,7 +79,7 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                <Link to="/login" className="btn btn-ghost text-gray-500 hover:text-green-600">
+                <Link to="/login" className="btn btn-ghost border-2 border-amber-50  text-gray-500 hover:text-green-600 bg-purple-100">
                   Login
                 </Link>
                 <Link to="/signup" className="btn bg-green-600 hover:bg-green-700 text-white">
@@ -89,7 +89,7 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile*/}
           <button
             className="md:hidden inline-flex items-center justify-center h-10 w-10 text-gray-500 hover:text-green-600 transition-colors"
             onClick={() => setOpen((s) => !s)}
@@ -142,7 +142,7 @@ const Navbar = () => {
                   <Link
                     to="/login"
                     onClick={() => setOpen(false)}
-                    className="btn btn-ghost flex-1 text-gray-500 hover:text-green-600"
+                    className="btn btn-ghost flex-1 border-2 border-amber-50 text-gray-500 hover:text-green-600 bg-fuchsia-100"
                   >
                     Login
                   </Link>

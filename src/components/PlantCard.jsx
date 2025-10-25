@@ -21,7 +21,7 @@ const PlantCard = ({ p }) => (
     "
     loading="lazy"
   />
-  {/* subtle gradient overlay on hover */}
+  {/* gradient overlay on hover */}
   <div
     className="
       absolute inset-0

@@ -1,4 +1,4 @@
-// AuthProvider.jsx
+
 import React, { useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import {
@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Auth API wrappers
+  // Auth API
   const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password);
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
   const googleLogin = () => signInWithPopup(auth, googleProvider);
@@ -29,16 +29,17 @@ const AuthProvider = ({ children }) => {
   const updateUser = (displayName, photoURL) =>
     updateProfile(auth.currentUser, { displayName, photoURL });
 
-  // ✅ Helper to ensure user has a photoURL
+  //user photoURL
   const ensureUserPhoto = async (u) => {
     try {
       if (u && !u.photoURL) {
         await updateProfile(u, { photoURL: DEFAULT_AVATAR });
-        // reload local state so UI gets the new photo
+        // default photo
         setUser({ ...u, photoURL: DEFAULT_AVATAR });
       }
-    } catch {
-      // swallow — not critical
+    } 
+    catch {
+      // nothing
     }
   };
 

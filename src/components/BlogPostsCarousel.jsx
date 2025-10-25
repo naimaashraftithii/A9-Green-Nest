@@ -1,4 +1,4 @@
-// src/components/BlogPostsCarousel.jsx
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -53,7 +53,7 @@ const posts = [
 export default function BlogPostsCarousel() {
   return (
     <section className="pt-4">
-      {/* Heading */}
+      {/* Header */}
       <div className="text-center mb-8">
         <p className="text-emerald-600 pacifico-regular uppercase tracking-wider font-bold text-sm">
           Love Story
@@ -98,9 +98,9 @@ export default function BlogPostsCarousel() {
                   alt={p.title}
                   className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                {/* gradient overlay reveal */}
+                {/* gradient overlay  */}
                 <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                {/* floating date badge */}
+                {/* floating date */}
                 <div
               className="absolute top-3 left-3 font-bold
              bg-gradient-to-r from-[#fc6767] via-[#ec008c] to-[#f27121] 
@@ -134,7 +134,7 @@ export default function BlogPostsCarousel() {
                 </Link>
               </div>
 
-              {/* subtle glow on hover */}
+              {/*  hover */}
               <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute -inset-1 rounded-2xl blur-xl bg-emerald-500/10" />
               </div>

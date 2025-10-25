@@ -1,4 +1,4 @@
-// src/components/Footer.jsx
+
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -47,7 +47,7 @@ const Footer = () => {
   py-10 px-6 md:px-10 mb-10"
 >
   <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-    {/* Left Section (Top on small screens) */}
+    {/* Left Section small screens)  */}
     <div className="flex-1">
       <h2 className="text-3xl md:text-4xl font-bold font-serif text-green-700 mb-3 drop-shadow-sm transition-colors duration-300 group-hover:text-green-800 text-center md:text-left">
         🎄 Get{" "}
@@ -61,7 +61,7 @@ const Footer = () => {
       </p>
     </div>
 
-    {/* Right Section (Bottom on small screens) */}
+    {/* Right Section small screens) */}
     <form
       onSubmit={handleSubscribe}
       className="flex flex-col sm:flex-row items-center justify-center w-full md:w-auto gap-3 text-center"
@@ -101,9 +101,9 @@ const Footer = () => {
  
 </div>
 
-      {/* ✅ Properly closed section tag above */}
+      
 
-      {/* ---------------- Footer Main Content ---------------- */}
+      {/* Footer Main  */}
       <div className="container mx-auto px-6 py-10 grid md:grid-cols-4 gap-10 border-t border-green-200">
         {/* Brand / Logo */}
         <div className="text-center md:text-left col-span-1">
@@ -191,7 +191,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* ---------------- Bottom Bar ---------------- */}
+      {/* Bottom */}
       <div className="text-center text-sm text-gray-500 border-t border-green-200 py-5">
         © 2025{" "}
         <span className="text-green-700 font-medium hover:text-green-900 transition-colors">
@@ -200,7 +200,7 @@ const Footer = () => {
         . All rights reserved.
       </div>
 
-      {/* gradient animation keyframes */}
+      {/* gradient animation */}
       <style>{`
         @keyframes moveGradient {
           0% { background-position: 0% 50%; }

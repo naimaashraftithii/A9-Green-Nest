@@ -65,7 +65,7 @@ const HeroParallaxCarousel = () => {
         {slides.map((s, i) => (
           <SwiperSlide key={i}>
             <div className="relative h-full w-full">
-              {/* Full-width responsive image */}
+              {/* Full-image */}
               <img
                 data-swiper-parallax="-20%"
                 src={s.img}
@@ -73,10 +73,10 @@ const HeroParallaxCarousel = () => {
                 className="absolute inset-0 w-full h-full object-cover object-center opacity-90 transition-all duration-700"
               />
 
-              {/* Dark overlay */}
+              {/*overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30" />
 
-              {/* Centered text box */}
+              {/* Centered textbox */}
               <div className="relative flex items-center justify-center h-full px-4 sm:px-6 md:px-10">
                 <div
                   className="max-w-3xl mx-auto text-white bg-black/30 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6 md:p-10 text-center shadow-lg transition-transform duration-500 hover:scale-105"
