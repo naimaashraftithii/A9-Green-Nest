@@ -1,8 +1,5 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
-
-
 
 const offers = [
   {
@@ -28,6 +25,7 @@ const offers = [
     title: "Choose Your Plant",
     subtitle: "Buy It",
     img: "https://i.ibb.co.com/YFHcYvCJ/aa0915a3968f396aec2a563287496dbe.jpg",
+    cta: { label: "Shop Now", to: "/shop" },
   },
 ];
 
@@ -36,7 +34,7 @@ function BannerCard({ item, size = "sm", align = "left" }) {
     size === "lg"
       ? "h-[18rem] sm:h-[22rem] lg:h-[26rem]"
       : size === "tall"
-      ? "h-[35rem] sm:h-[40rem] lg:h-[47rem]" 
+      ? "h-[35rem] sm:h-[40rem] lg:h-[47rem]"
       : "h-[14rem] sm:h-[16rem] lg:h-[18rem]";
 
   const alignBox =
@@ -59,17 +57,19 @@ function BannerCard({ item, size = "sm", align = "left" }) {
         loading="lazy"
       />
 
-      {/* Overlay gradient */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/35" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
-      {/* Light sweep */}
+      {/* Light */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[120%] group-hover:translate-x-[120%] duration-[1200ms]" />
       </div>
 
       {/* Content */}
-      <div className={`relative z-10 h-full w-full p-6 sm:p-8 flex ${alignBox} justify-end`}>
+      <div
+        className={`relative z-10 h-full w-full p-6 sm:p-8 flex ${alignBox} justify-end`}
+      >
         <div className="max-w-md text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           {item.subtitle && (
             <p className="pacifico-regular text-white/90 text-lg sm:text-xl mb-1">
@@ -88,18 +88,23 @@ function BannerCard({ item, size = "sm", align = "left" }) {
           </h3>
 
           {item.desc && (
-            <p className="mt-3 text-sm sm:text-base text-white/90">{item.desc}</p>
+            <p className="mt-3 text-sm sm:text-base text-white/90">
+              {item.desc}
+            </p>
           )}
 
-          {/* Gradient Button with animation */}
+          {/* Gradient Button with animation alert link */}
           {item.cta && (
             <Link
               to={item.cta.to}
+              onClick={() =>
+                alert(`Redirecting to: ${item.cta.label}`)
+              }
               className="relative mt-5 inline-flex items-center justify-center px-8 py-3 
                          text-white font-semibold rounded-md overflow-hidden
                          shadow-lg transition-all duration-300 group/button"
             >
-              {/* Animated gradient background */}
+             
               <span
                 className="absolute inset-0 bg-gradient-to-r from-yellowgreen via-pink-500 to-sky-500 
                            animate-gradient-x opacity-100 group-hover/button:brightness-110 
@@ -107,7 +112,9 @@ function BannerCard({ item, size = "sm", align = "left" }) {
               ></span>
 
               {/* Text layer */}
-              <span className="relative z-10">{item.cta.label}</span>
+              <span className="relative z-10 flex items-center gap-2">
+                {item.cta.label} →
+              </span>
 
               {/* Glow ring */}
               <span className="absolute inset-0 rounded-md ring-2 ring-transparent group-hover/button:ring-white/40 transition-all duration-500"></span>
@@ -119,7 +126,7 @@ function BannerCard({ item, size = "sm", align = "left" }) {
   );
 }
 
-//gradient animation
+
 const gradientAnimation = `
 @keyframes gradient-x {
   0%, 100% { background-position: 0% 50%; }
@@ -135,18 +142,20 @@ const BestOffers = () => {
   return (
     <>
       <style>{gradientAnimation}</style>
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-slate-900 transition-colors">
         {/* Title */}
         <div className="text-center mb-10">
-          <p className="text-teal-600 pacifico-regular text-lg">Hot Offers</p>
-          <h2 className="text-[2.1rem] sm:text-4xl font-extrabold text-[#4b3426] tracking-wide uppercase">
+          <p className="text-teal-600 pacifico-regular text-lg">
+            Hot Offers
+          </p>
+          <h2 className="text-[2.1rem] sm:text-4xl font-extrabold text-[#4b3426] dark:text-amber-100 tracking-wide uppercase">
             Our Best Offers - Plant of the Week
           </h2>
         </div>
 
         {/* Grid */}
         <div className="max-w-[1150px] mx-auto grid gap-7 md:grid-cols-3 px-4">
-          {/* Left column  */}
+          {/* Left column */}
           <div className="md:col-span-2 grid gap-7">
             <BannerCard item={offers[0]} size="lg" align="left" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
@@ -155,7 +164,7 @@ const BestOffers = () => {
             </div>
           </div>
 
-          {/* Right side  */}
+          {/* Right side */}
           <BannerCard item={offers[1]} size="tall" align="left" />
         </div>
       </section>

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
@@ -12,19 +11,20 @@ import HeroParallaxCarousel from "../components/HeroParallaxCarousel";
 import ServicesSection from "../components/ServicesSection";
 import BestOffers from "../components/BestOffers";
 import SpringHistory from "../components/SpringHistory";
+import PageSection from "../layout/PageSection";
 
-//  Eco Decor Ideas 
+
 const EcoDecorIdeas = () => (
-  <section className="p-6 rounded-2xl text-center bg-emerald-200 hover:bg-emerald-100 transform">
-    <h2 className="text-6xl font-extrabold text-black italic mb-2 pacifico-regular">
+  <div className="p-6 rounded-2xl text-center bg-emerald-200 dark:bg-emerald-900/50 hover:bg-emerald-100 dark:hover:bg-emerald-800 transform transition-colors">
+    <h2 className="text-2xl sm:text-3xl font-extrabold text-black dark:text-emerald-100 italic mb-2 pacifico-regular">
       Eco Decor Ideas
     </h2>
-    <p className="text-sm md:text-base text-gray-500 font-serif max-w-2xl md:max-w-3xl mx-auto leading-relaxed mb-7">
+    <p className="text-sm md:text-base text-gray-700 dark:text-gray-200 font-serif max-w-2xl md:max-w-3xl mx-auto leading-relaxed mb-7">
       It’s true when we say plants make people happy. We hope you’ll make any one of these
       plants an addition to your home.
     </p>
 
-    <div className="grid md:grid-cols-3 gap-6 text-gray-600">
+    <div className="grid md:grid-cols-3 gap-6 text-gray-600 dark:text-gray-100">
       {[
         {
           title: "Shelf Styling",
@@ -53,12 +53,11 @@ const EcoDecorIdeas = () => (
       ].map((item, idx) => (
         <div
           key={idx}
-          className="rounded-xl overflow-hidden bg-blue-50 shadow hover:shadow-lg transition-all duration-300"
+          className="rounded-xl overflow-hidden bg-blue-50 dark:bg-slate-800 shadow hover:shadow-lg transition-all duration-300"
         >
-          
-          <div className="flex gap-2 p-2 bg-white">
+          <div className="flex gap-2 p-2 bg-white dark:bg-slate-900">
             {item.imgs.map((src, i) => (
-              <div key={i} className="flex-1 overflow-hidden rounded-lg border-2 border-white">
+              <div key={i} className="flex-1 overflow-hidden rounded-lg border-2 border-white dark:border-slate-800">
                 <img
                   src={src}
                   alt={item.title}
@@ -69,16 +68,17 @@ const EcoDecorIdeas = () => (
           </div>
 
           <div className="p-4">
-            <h3 className="font-semibold text-gray-800">{item.title}</h3>
+            <h3 className="font-semibold text-gray-800 dark:text-slate-50">
+              {item.title}
+            </h3>
             <p className="text-sm opacity-80">{item.text}</p>
           </div>
         </div>
       ))}
     </div>
-  </section>
+  </div>
 );
 
-// Page of home
 const Home = () => {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -106,21 +106,22 @@ const Home = () => {
 
   return (
     <>
-      
-      {/*  Hero Carousel  */}
+      {/* Hero Carousel full width */}
       <HeroParallaxCarousel />
       <SpringHistory />
-      {/* Top Rated Plants  */}
-      <div className="container mx-auto space-y-16 py-8 px-4">
+
+      
+      <PageSection>
+        {/* Top Rated section */}
         <section>
-          <div className="flex flex-col sm:flex-row items-center justify-between mb-6">
-            <h2 className="text-3xl text-gray-800 font-bold mb-3 sm:mb-0">
+          <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-3">
+            <h2 className="text-3xl text-gray-800 dark:text-slate-50 font-bold">
               Top Rated Indoor Plants
             </h2>
 
             <Link
               to="/plants"
-              className="btn relative overflow-hidden bg-gradient-to-r from-[#8a2387] via-[#e94057] via-[#ec008c] to-[#f27121]
+              className="btn relative overflow-hidden bg-linear-to-r from-[#8a2387] via-[#e94057] via-[#ec008c] to-[#f27121]
                          text-white font-semibold shadow-md border-none transition-all duration-300 ease-out
                          hover:scale-[1.08] hover:shadow-xl hover:brightness-110 group"
             >
@@ -130,7 +131,7 @@ const Home = () => {
                   →
                 </span>
               </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-[#fc6767] via-[#ec008c] to-[#f27121] opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-linear-to-r from-[#fc6767] via-[#ec008c] to-[#f27121] opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-500" />
             </Link>
           </div>
 
@@ -140,17 +141,35 @@ const Home = () => {
             ))}
           </div>
         </section>
+      </PageSection>
 
-        {/* Home Others sections */}
-        
+      <PageSection>
         <BestOffers />
+      </PageSection>
+
+      <PageSection>
         <EcoDecorIdeas />
+      </PageSection>
+
+      <PageSection>
         <PlantCareTips />
+      </PageSection>
+
+      <PageSection>
         <BlogPostsCarousel />
+      </PageSection>
+
+      <PageSection>
         <Testimonials />
+      </PageSection>
+
+      <PageSection>
         <ServicesSection />
+      </PageSection>
+
+      <PageSection>
         <ExpertsGrid />
-      </div>
+      </PageSection>
     </>
   );
 };

@@ -58,7 +58,7 @@ const Login = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* bg transparent overlay */}
+      {/*transparent overlay */}
       <div className="absolute inset-0 bg-white/18 backdrop-blur-[0.5px]" />
 
       {/* animated  */}

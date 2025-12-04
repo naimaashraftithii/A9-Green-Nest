@@ -51,7 +51,7 @@ export default function ExpertsGrid() {
               {e.spec}
             </p>
 
-            {/* underline animation */}
+    
             <span className="block mt-3 mx-auto w-0 group-hover:w-20 h-0.5 bg-gradient-to-r from-emerald-400 to-pink-400 transition-all duration-500"></span>
           </div>
         ))}

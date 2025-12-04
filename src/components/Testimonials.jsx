@@ -45,7 +45,6 @@ export default function Testimonials() {
               hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.01]
             "
           >
-            {/* border hover ring */}
             <span
               className="
                 pointer-events-none absolute inset-0 rounded-2xl

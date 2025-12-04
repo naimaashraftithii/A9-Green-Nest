@@ -1,24 +1,30 @@
+
 import React from "react";
-import ErrorState from "./ErrorState";
 
-export default class RenderErrorBoundary extends React.Component {
-  state = { hasError: false, error: null };
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error };
+class RenderErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
   }
-  componentDidCatch(error, info) { /* loghere */ }
+
+  componentDidCatch(error, info) {
+   
+    console.error("RenderErrorBoundary caught:", error, info);
+    this.setState({ hasError: true });
+  }
 
   render() {
     if (this.state.hasError) {
       return (
-        <ErrorState
-          title="Something went wrong"
-          message={this.state.error?.message || "Please try again."}
-          onRetry={() => location.reload()}
-        />
+        <div className="p-6 text-center">
+          <h2 className="text-xl font-semibold text-red-600">
+            Something went wrong.
+          </h2>
+        </div>
       );
     }
     return this.props.children;
   }
 }
+
+export default RenderErrorBoundary;

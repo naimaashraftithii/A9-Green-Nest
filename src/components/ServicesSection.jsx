@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";  // ✅ Missing import added!
 import { FaAward, FaDraftingCompass, FaStar, FaShoppingCart } from "react-icons/fa";
 
 const services = [
@@ -39,8 +40,10 @@ const ServicesSection = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-6xl mx-auto">
         {services.map((service, i) => (
           <div key={i} className="flex flex-col items-center group">
-            <div className="bg-gray-100 w-28 h-28 rounded-full flex items-center justify-center mb-6 
-            transition-transform duration-300 hover:bg-emerald-200 group-hover:scale-110">
+            <div
+              className="bg-gray-100 w-28 h-28 rounded-full flex items-center justify-center mb-6 
+              transition-transform duration-300 hover:bg-emerald-200 group-hover:scale-110"
+            >
               {service.icon}
             </div>
             <h3 className="text-lg font-extrabold text-gray-800 mb-2">
@@ -54,9 +57,12 @@ const ServicesSection = () => {
 
       {/* Button */}
       <div className="mt-12">
-        <button className="bg-teal-500 hover:bg-indigo-800 text-white font-semibold px-8 py-3 rounded-md shadow-md transition">
+        <Link
+          to="/services"
+          className="bg-teal-500 hover:bg-indigo-800 text-white font-semibold px-8 py-3 rounded-md shadow-md transition inline-block"
+        >
           VIEW ALL
-        </button>
+        </Link>
       </div>
     </section>
   );

@@ -2,18 +2,20 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import RenderErrorBoundary from "../components/RenderErrorBoundary";
 
-const MainLayout = () => (
-  <div className="min-h-screen flex flex-col">
-    <Navbar />
-    <main className="flex-1">
-      <RenderErrorBoundary>
-        <Outlet />
-      </RenderErrorBoundary>
-    </main>
-    <Footer />
-  </div>
-);
+const MainLayout = () => {
+  return (
+  
+<div className="min-h-screen bg-white dark:bg-black 
+                text-gray-300 dark:text-gray-400 
+                transition-colors">
+
+  <Navbar />
+  <Outlet />
+  <Footer />
+</div>
+
+  );
+};
 
 export default MainLayout;

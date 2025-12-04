@@ -14,19 +14,19 @@ const slides = [
     subtitle: "— May Sarton",
   },
   {
-    img: "https://i.ibb.co.com/Y4Ws2btb/slide1-25.jpg",
+    img: "https://i.ibb.co.com/fYQMFxVR/e7dbd673df7e98e772026323b5bb91f5.jpg",
     title: "Healthy Plants, Happy Homes",
     text: "In nature, nothing is perfect and everything is perfect. Trees can be contorted, bent in weird ways, and they’re still beautiful.",
     subtitle: "— Alice Walker",
   },
   {
-    img: "https://i.ibb.co/fYQMFxVR/e7dbd673df7e98e772026323b5bb91f5.jpg",
+    img: "https://i.ibb.co.com/LX6mbSV0/slide-2.jpg",
     title: "Sunlight • Water • Love",
     text: "Trees exhale for us so that we can inhale them to stay alive. Can we ever forget that? Let us love trees with every breath we take until we perish.",
     subtitle: "— Munia Khan",
   },
   {
-    img: "https://i.ibb.co.com/4R3mJL8n/8d8a7f2433089b29fe61b8d543b9dcef.jpg",
+    img: "https://i.ibb.co.com/MDkZDNYR/f5b2981b659c1eddb3779e6375efbb4d.jpg",
     title: "Decor That Grows On You",
     text: "Everything that slows us down and forces patience, everything that sets us back into the slow circles of nature, is a help. Gardening is an instrument of grace.",
     subtitle: "— May Sarton",
@@ -38,13 +38,13 @@ const slides = [
     subtitle: "— May Sarton",
   },
   {
-    img: "https://i.ibb.co.com/fYQMFxVR/e7dbd673df7e98e772026323b5bb91f5.jpg",
+    img: "https://i.ibb.co.com/4R3mJL8n/8d8a7f2433089b29fe61b8d543b9dcef.jpg",
     title: "Healthy Plants, Happy Homes",
     text: "In nature, nothing is perfect and everything is perfect. Trees can be contorted, bent in weird ways, and they’re still beautiful.",
     subtitle: "— Alice Walker",
   },
   {
-    img: "https://i.ibb.co.com/MDkZDNYR/f5b2981b659c1eddb3779e6375efbb4d.jpg",
+    img: "https://i.ibb.co/MDkZDNYR/f5b2981b659c1eddb3779e6375efbb4d.jpg",
     title: "Book a Plant Expert",
     text: "There is no gardening without humility. Nature is constantly sending even its oldest scholars to the bottom of the class for some egregious blunder.",
     subtitle: "— Alfred Austin",
@@ -60,7 +60,15 @@ const HeroParallaxCarousel = () => {
         parallax
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        className="w-full h-[280px] sm:h-[400px] md:h-[500px] lg:h-[640px] xl:h-[720px]"
+        //  Hero/Carousel 
+        className="
+          w-full 
+          h-[60vh] 
+          md:h-[65vh] 
+          lg:h-[70vh]
+          min-h-[320px] 
+          max-h-[720px]
+        "
       >
         {slides.map((s, i) => (
           <SwiperSlide key={i}>
@@ -73,10 +81,10 @@ const HeroParallaxCarousel = () => {
                 className="absolute inset-0 w-full h-full object-cover object-center opacity-90 transition-all duration-700"
               />
 
-              {/*overlay */}
+              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30" />
 
-              {/* Centered textbox */}
+              {/*textbox */}
               <div className="relative flex items-center justify-center h-full px-4 sm:px-6 md:px-10">
                 <div
                   className="max-w-3xl mx-auto text-white bg-black/30 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6 md:p-10 text-center shadow-lg transition-transform duration-500 hover:scale-105"

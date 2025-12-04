@@ -1,20 +1,15 @@
-import React, { StrictMode, Suspense } from "react";
-import { createRoot } from "react-dom/client";
+// src/main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./routes/router.jsx";
-import "./index.css";
-import AuthProvider from "./context/AuthProvider.jsx";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Loader from "./components/Loader";
+import { router } from "./routes/router";
+import AuthProvider from "./context/AuthProvider";
+import "./index.css"; 
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
     <AuthProvider>
-      <Suspense fallback={<Loader />}>
-        <RouterProvider router={router} />
-      </Suspense>
-      <ToastContainer />
+      <RouterProvider router={router} />
     </AuthProvider>
-  </StrictMode>
+  </React.StrictMode>
 );

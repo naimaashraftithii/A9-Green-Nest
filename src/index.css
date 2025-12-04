@@ -1,10 +1,23 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 @plugin "daisyui";
-@import url('https://fonts.googleapis.com/css2?family=Lustria:ital,wght@0,400;1,700&display=swap');
 
-/* button class */
+@import url("https://fonts.googleapis.com/css2?family=Lustria:ital,wght@0,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+/*default theme */
+body {
+  @apply bg-white text-gray-800 dark:bg-black dark:text-gray-100;
+}
+
+
+.navbar a {
+  text-decoration: none;
+}
+
+/* gradient button */
 .my-btn {
-  @apply btn w-full bg-linear-to-r from-green-500 via-emerald-500 to-lime-500
+  @apply btn w-full bg-gradient-to-r from-green-500 via-emerald-500 to-lime-500
          text-white font-semibold border-none hover:scale-105 transition-transform duration-200;
 }
 

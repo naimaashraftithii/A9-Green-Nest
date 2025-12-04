@@ -1,164 +1,127 @@
-import React, { useContext, useState } from "react";
+
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import logo from "../assets/logo1.png"; // ⚠️ rename to remove spaces
+import logo from "../assets/logo1.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const navLinkClass = ({ isActive }) =>
-  `px-3 py-2 rounded-md text-sm md:text-base transition-colors duration-200
-   ${
-     isActive
-       ? "text-green-600 font-semibold"
-       : "text-gray-400 hover:text-green-500"
-   }`;
+  `
+  px-4 py-2 rounded-full text-sm md:text-base font-medium
+  transition-all duration-200
+  ${
+    isActive
+      ? "text-emerald-500 font-semibold"
+      : "text-gray-300 hover:text-emerald-400"
+  }
+`;
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
 
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
+
   return (
-    <header className="sticky top-0 z-20 bg-base-100/95 backdrop-blur border-b border-gray-200">
-      <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Brand */}
-         <Link to="/" className="flex items-center gap-2">
-  <img
-    src={logo}
-    alt="GreenNest logo"
-    className="h-9 w-auto drop-shadow-sm"
-  />
-  <span className="text-5xl font-extrabold tracking-tight text-green-500">
-    <span className="inter_Lustria text-green-700 italic">Green</span>
-    Nest
-  </span>
-</Link>
+    <header className="sticky top-0 z-50 bg-slate-900 border-b border-slate-800 text-gray-100">
+      <nav className="max-w-7xl mx-auto px-4 relative h-16 flex items-center">
 
+        {/* LEFT */}
+        <div className="flex items-center">
+          <Link to="/" className="flex items-center gap-2">
+            <img src={logo} className="h-9" alt="logo" />
+            <span className="text-3xl font-bold text-green-500">
+              Green<span className="text-green-300">Nest</span>
+            </span>
+          </Link>
+        </div>
 
-          {/* Desktop Links */}
-          <ul className="hidden md:flex items-center gap-4">
-            <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
-            <li><NavLink to="/plants" className={navLinkClass}>Plants</NavLink></li>
-            <li><NavLink to="/profile" className={navLinkClass}>My Profile</NavLink></li>
-          </ul>
+        {/* CENTER */}
+        <ul className="
+          hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2
+        ">
+          <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
+          <li><NavLink to="/plants" className={navLinkClass}>Plants</NavLink></li>
 
-          {/* Right */}
-          <div className="hidden md:flex items-center gap-2">
-            {user ? (
-              <div className="dropdown dropdown-end">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle avatar"
-                >
-                  <div className="w-10 rounded-full ring ring-green-400 ring-offset-2">
-                    <img
-                      alt="avatar"
-                      src={user.photoURL || "https://i.pravatar.cc/100?img=8"}
-                    />
-                  </div>
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-56 p-2 shadow"
-                >
-                  <li className="px-2 py-2">
-                    <div className="text-sm leading-tight">
-                      <div className="font-semibold">
-                        {user.displayName || "Anonymous"}
-                      </div>
-                      <div className="opacity-70">{user.email}</div>
-                    </div>
-                  </li>
-                  <li>
-                    <Link to="/profile">Profile</Link>
-                  </li>
-                  <li>
-                    <button onClick={logout}>Logout</button>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <>
-                <Link to="/login" className="btn btn-ghost border-2 border-amber-50  text-gray-500 hover:text-green-600 bg-purple-100">
-                  Login
-                </Link>
-                <Link to="/signup" className="btn bg-green-600 hover:bg-green-700 text-white">
-                  Register
-                </Link>
-              </>
-            )}
-          </div>
+          {user && (
+            <>
+              <li><NavLink to="/profile" className={navLinkClass}>My Profile</NavLink></li>
+              <li><NavLink to="/about" className={navLinkClass}>About Us</NavLink></li>
+              <li><NavLink to="/services" className={navLinkClass}>Services</NavLink></li>
+            </>
+          )}
+        </ul>
 
-          {/* Mobile*/}
+        {/* RIGHT */}
+        <div className="hidden md:flex items-center gap-3 ml-auto">
+
+          {/* THEME BUTTON */}
           <button
-            className="md:hidden inline-flex items-center justify-center h-10 w-10 text-gray-500 hover:text-green-600 transition-colors"
-            onClick={() => setOpen((s) => !s)}
-            aria-label="Toggle Menu"
+            onClick={toggleTheme}
+            className="h-8 w-8 rounded-full border border-slate-600 flex items-center justify-center bg-slate-800"
           >
+            {theme === "light" ? "🌙" : "🔆"}
+          </button>
+
+          {/* BUTTONS */}
+          {!user ? (
+            <>
+              <Link
+                to="/login"
+                className="px-4 py-1 rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="px-4 py-1 rounded-md bg-green-600 text-white hover:bg-green-700"
+              >
+                Register
+              </Link>
+            </>
+          ) : (
+            <button onClick={logout} className="px-4 py-1 rounded-md bg-red-500">
+              Logout
+            </button>
+          )}
+        </div>
+
+        {/* MOBILE MENU BUTTON */}
+        <div className="md:hidden ml-auto flex items-center gap-2">
+          <button onClick={toggleTheme} className="h-8 w-8 bg-slate-800 rounded-full border border-slate-600">
+            {theme === "light" ? "🌙" : "🔆"}
+          </button>
+
+          <button onClick={() => setOpen(!open)} className="text-xl">
             {open ? <FaTimes /> : <FaBars />}
           </button>
         </div>
-
-        {/* Mobile Panel */}
-        {open && (
-          <div className="md:hidden pb-3 animate-in fade-in slide-in-from-top-2">
-            <ul className="flex flex-col border-t pt-3 gap-1">
-              <li>
-                <NavLink to="/" className={navLinkClass} onClick={() => setOpen(false)}>
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/plants" className={navLinkClass} onClick={() => setOpen(false)}>
-                  Plants
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/profile" className={navLinkClass} onClick={() => setOpen(false)}>
-                  My Profile
-                </NavLink>
-              </li>
-            </ul>
-
-            <div className="mt-3 flex items-center gap-2">
-              {user ? (
-                <>
-                  <Link
-                    to="/profile"
-                    onClick={() => setOpen(false)}
-                    className="btn btn-ghost flex-1 text-gray-500 hover:text-green-600"
-                  >
-                    Profile
-                  </Link>
-                  <button
-                    onClick={logout}
-                    className="btn btn-outline flex-1 text-gray-500 hover:text-green-600"
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link
-                    to="/login"
-                    onClick={() => setOpen(false)}
-                    className="btn btn-ghost flex-1 border-2 border-amber-50 text-gray-500 hover:text-green-600 bg-fuchsia-100"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/signup"
-                    onClick={() => setOpen(false)}
-                    className="btn bg-green-600 text-white hover:bg-green-700 flex-1"
-                  >
-                    Register
-                  </Link>
-                </>
-              )}
-            </div>
-          </div>
-        )}
       </nav>
+
+      {/* MOBILE DROPDOWN */}
+      {open && (
+        <div className="md:hidden bg-slate-900 border-t border-slate-800 px-4 pb-4">
+          <ul className="flex flex-col gap-2 pt-3">
+            <NavLink to="/" className={navLinkClass} onClick={() => setOpen(false)}>Home</NavLink>
+            <NavLink to="/plants" className={navLinkClass} onClick={() => setOpen(false)}>Plants</NavLink>
+
+            {user && (
+              <>
+                <NavLink to="/profile" className={navLinkClass} onClick={() => setOpen(false)}>My Profile</NavLink>
+                <NavLink to="/about" className={navLinkClass} onClick={() => setOpen(false)}>About Us</NavLink>
+                <NavLink to="/services" className={navLinkClass} onClick={() => setOpen(false)}>Services</NavLink>
+              </>
+            )}
+          </ul>
+        </div>
+      )}
     </header>
   );
 };
